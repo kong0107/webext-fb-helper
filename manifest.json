@@ -1,10 +1,17 @@
 {
     "manifest_version": 3,
-    "name": "Browser Extension Template",
-    "version": "0.1.0",
-    "permissions": ["activeTab", "scripting"],
-    "action": {},
+    "name": "Facebook Helper",
+    "version": "0.1.1",
+    "permissions": ["activeTab", "scripting", "downloads", "declarativeContent"],
+    "action": {
+        "default_popup": "popup.html"
+    },
     "background": {
         "service_worker": "background.js"
-    }
+    },
+    "content_scripts": [{
+        "matches": ["https://*.facebook.com/*"],
+        "css": ["style.css"],
+        "js": ["content_script.js"]
+    }]
 }
